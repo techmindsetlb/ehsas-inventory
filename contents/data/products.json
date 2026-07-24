@@ -1,5 +1,21 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mrzjgh66bgkt53",
+      "name": "Test",
+      "price": 10,
+      "categoryId": "",
+      "stock": 1,
+      "tags": [],
+      "status": "",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": null,
+      "image": "images/product_1784933726614_9glo.webp",
+      "createdAt": "2026-07-24T22:55:30.798Z",
+      "updatedAt": "2026-07-24T22:55:30.798Z"
+    }
+  ],
   "categories": [],
   "statuses": [],
   "sales": [],
