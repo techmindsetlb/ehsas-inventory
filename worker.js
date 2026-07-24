@@ -4,31 +4,51 @@
  * Deploy this as a Cloudflare Worker.
  * The GitHub token is stored as a Worker secret (GITHUB_TOKEN),
  * never exposed to clients.
+ *
+ * === SETUP ===
+ * 1. Go to https://dash.cloudflare.com → Workers & Pages → Create Worker
+ * 2. Paste this code
+ * 3. Go to Settings → Variables → Add secret named GITHUB_TOKEN
+ * 4. Paste your GitHub token as the secret value
+ * 5. Deploy and copy your Worker URL (e.g., https://ehsas-proxy.xxxx.workers.dev)
+ * 6. Paste that URL into js/config.js as workerUrl
  */
 
-// CONFIG — update these for your repo
 const OWNER = 'techmindsetlb';
 const REPO = 'ehsas-inventory';
 const BRANCH = 'master';
 
 export default {
   async fetch(request) {
+    // Handle CORS preflight
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        }
+      });
+    }
+
     const url = new URL(request.url);
-    const path = url.pathname; // e.g., /contents/data/products.json
+    const path = url.pathname;
 
     // Read token from Worker secret (set in Cloudflare dashboard)
     const token = GITHUB_TOKEN;
     if (!token) {
-      return new Response(JSON.stringify({ error: 'GitHub token not configured' }), {
+      return new Response(JSON.stringify({ error: 'GitHub token not configured. Set GITHUB_TOKEN as a Worker secret.' }), {
         status: 500,
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
       });
     }
 
-    // Build GitHub API URL
     const githubUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents${path}`;
 
-    // For write operations, we need the SHA of the current file
+    // For write operations, get the SHA of the current file
     let sha = null;
     if (request.method === 'PUT') {
       const getRes = await fetch(githubUrl, {
