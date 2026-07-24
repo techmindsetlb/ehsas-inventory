@@ -1,36 +1,5 @@
 {
-  "products": [
-    {
-      "id": "mrzi776qs3h6q0",
-      "name": "test2",
-      "price": 10,
-      "categoryId": "",
-      "stock": 10,
-      "tags": [],
-      "status": "",
-      "description": "",
-      "notes": "",
-      "lowStockThreshold": null,
-      "image": "images/product_1784931614933_cd34.webp",
-      "createdAt": "2026-07-24T22:20:18.338Z",
-      "updatedAt": "2026-07-24T22:20:18.338Z"
-    },
-    {
-      "id": "mrzi4oloz6h71f",
-      "name": "test",
-      "price": 10,
-      "categoryId": "",
-      "stock": 1,
-      "tags": [],
-      "status": "",
-      "description": "",
-      "notes": "",
-      "lowStockThreshold": null,
-      "image": "images/product_1784931497169_lkvk.webp",
-      "createdAt": "2026-07-24T22:18:20.940Z",
-      "updatedAt": "2026-07-24T22:18:20.941Z"
-    }
-  ],
+  "products": [],
   "categories": [],
   "statuses": [],
   "sales": [],
