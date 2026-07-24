@@ -1,5 +1,21 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mrzi4oloz6h71f",
+      "name": "test",
+      "price": 10,
+      "categoryId": "",
+      "stock": 1,
+      "tags": [],
+      "status": "",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": null,
+      "image": "images/product_1784931497169_lkvk.webp",
+      "createdAt": "2026-07-24T22:18:20.940Z",
+      "updatedAt": "2026-07-24T22:18:20.941Z"
+    }
+  ],
   "categories": [],
   "statuses": [],
   "sales": [],
