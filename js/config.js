@@ -15,7 +15,7 @@ const CONFIG = {
 
   // === App Settings ===
   appName: 'Ehsas Store',
-  defaultPin: '1234',
+  defaultPin: '2002',
   lowStockThreshold: 5,
   currency: '$',
 
