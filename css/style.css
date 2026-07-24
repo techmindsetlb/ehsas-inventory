@@ -679,25 +679,39 @@ tr:hover td { background: var(--pink-bg); }
   flex-wrap: wrap;
 }
 
-/* Usage page: filters in a row, wrap naturally */
+/* Usage page: filters side by side in one row */
 .usage-toolbar {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+.usage-toolbar select, .usage-toolbar .date-filter-wrap {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+.usage-toolbar select {
+  max-width: 180px;
+}
+.usage-toolbar input[type="date"] {
+  max-width: 130px;
 }
 .date-filter-wrap {
   display: flex;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 .date-filter-wrap label {
   font-size: 12px;
   color: var(--plum-muted);
 }
-.date-filter-wrap input {
-  max-width: 140px;
+
+@media (max-width: 768px) {
+  .usage-toolbar {
+    flex-wrap: wrap;
+  }
 }
 
 .search-wrapper {
