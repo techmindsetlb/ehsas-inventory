@@ -14,21 +14,6 @@
       "image": "images/product_1784934456547_dvkb.webp",
       "createdAt": "2026-07-24T23:06:22.738Z",
       "updatedAt": "2026-07-24T23:07:59.204Z"
-    },
-    {
-      "id": "mrzjrnoipygebx",
-      "name": "Test",
-      "price": 10,
-      "categoryId": "",
-      "stock": 1,
-      "tags": [],
-      "status": "st-1",
-      "description": "",
-      "notes": "",
-      "lowStockThreshold": null,
-      "image": "",
-      "createdAt": "2026-07-24T23:04:12.450Z",
-      "updatedAt": "2026-07-24T23:04:12.450Z"
     }
   ],
   "categories": [
