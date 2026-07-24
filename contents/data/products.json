@@ -1,21 +1,5 @@
 {
-  "products": [
-    {
-      "id": "mrzjdp7kl9hf2c",
-      "name": "Stop",
-      "price": 10,
-      "categoryId": "",
-      "stock": 1,
-      "tags": [],
-      "status": "",
-      "description": "",
-      "notes": "",
-      "lowStockThreshold": null,
-      "image": "images/product_1784933592680_pmbb.webp",
-      "createdAt": "2026-07-24T22:53:21.248Z",
-      "updatedAt": "2026-07-24T22:53:21.251Z"
-    }
-  ],
+  "products": [],
   "categories": [],
   "statuses": [],
   "sales": [],
