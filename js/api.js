@@ -6,9 +6,13 @@
 const GitHubAPI = (() => {
   const BASE = 'https://api.github.com';
 
+  function getToken() {
+    return localStorage.getItem('ehsas_github_token') || CONFIG.token;
+  }
+
   function headers() {
     return {
-      'Authorization': `token ${CONFIG.token}`,
+      'Authorization': `token ${getToken()}`,
       'Accept': 'application/vnd.github.v3+json',
       'Content-Type': 'application/json'
     };

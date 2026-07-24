@@ -614,6 +614,9 @@ const App = (() => {
     const settings = DB.getSettings();
     document.getElementById('settings-threshold').value = settings.lowStockThreshold || 5;
     document.getElementById('settings-currency').value = settings.currency || '$';
+    const savedToken = localStorage.getItem('ehsas_github_token') || '';
+    document.getElementById('settings-github-token').value = savedToken ? savedToken.substring(0, 10) + '...' : '';
+    document.getElementById('settings-github-token').placeholder = savedToken ? 'Token saved ✓' : 'Paste your GitHub token...';
     document.getElementById('pin-change-msg').style.display = 'none';
   }
 
@@ -636,6 +639,17 @@ const App = (() => {
   function saveSettings() {
     const threshold = parseInt(document.getElementById('settings-threshold').value) || 5;
     const currency = document.getElementById('settings-currency').value || '$';
+    const tokenInput = document.getElementById('settings-github-token');
+    const rawToken = tokenInput.value.trim();
+    if (rawToken && rawToken.startsWith('ghp_') && rawToken.length > 20) {
+      localStorage.setItem('ehsas_github_token', rawToken);
+      tokenInput.value = rawToken.substring(0, 10) + '...';
+      tokenInput.placeholder = 'Token saved ✓';
+      showToast('Token saved! ✅', 'ok');
+    } else if (rawToken && !rawToken.includes('...')) {
+      showToast('Invalid token. Must start with ghp_', 'err');
+      return;
+    }
     DB.updateSettings({ lowStockThreshold: threshold, currency });
     showToast('Settings saved! ✅', 'ok');
     renderAll();

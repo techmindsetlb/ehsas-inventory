@@ -198,6 +198,11 @@
           <div class="card settings-section">
             <h3>GitHub Sync</h3>
             <p style="font-size:13px;color:var(--plum-muted);margin-bottom:14px">Data stored in <code>data/products.json</code> + <code>images/</code>.</p>
+            <div class="form-g" style="margin-bottom:12px">
+              <label class="form-l">GitHub Token <span style="font-weight:400;color:var(--plum-muted)">(stored in your browser only)</span></label>
+              <input type="password" id="settings-github-token" class="form-i" placeholder="ghp_..." style="font-family:'JetBrains Mono',monospace;font-size:12px">
+              <div style="font-size:11px;color:var(--plum-muted);margin-top:4px">Need a token? <a href="https://github.com/settings/tokens" target="_blank" style="color:var(--pink)">Create one</a> with <code>repo</code> scope.</div>
+            </div>
             <button class="btn btn-ghost" onclick="App.saveNow()">Sync Now</button>
             <span id="last-sync-time" style="font-size:12px;color:var(--plum-muted);margin-left:14px"></span>
           </div>
