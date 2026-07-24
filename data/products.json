@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mrzjug7md6p3bj",
+      "name": "Test2",
+      "price": 30,
+      "categoryId": "",
+      "stock": 1,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": null,
+      "image": "images/product_1784934364032_dtoy.webp",
+      "createdAt": "2026-07-24T23:06:22.738Z",
+      "updatedAt": "2026-07-24T23:06:22.738Z"
+    },
+    {
       "id": "mrzjrnoipygebx",
       "name": "Test",
       "price": 10,
