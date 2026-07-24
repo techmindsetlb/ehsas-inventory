@@ -2,7 +2,7 @@ const CONFIG = {
   // === GitHub Repository Settings ===
   owner: 'techmindsetlb',
   repo: 'ehsas-inventory',
-  branch: 'main',
+  branch: 'master',
   dataPath: 'data/products.json',
 
   // === GitHub Personal Access Token ===
