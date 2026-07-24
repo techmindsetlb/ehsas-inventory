@@ -1,17 +1,69 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mrzjrnoipygebx",
+      "name": "Test",
+      "price": 10,
+      "categoryId": "",
+      "stock": 1,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": null,
+      "image": "",
+      "createdAt": "2026-07-24T23:04:12.450Z",
+      "updatedAt": "2026-07-24T23:04:12.450Z"
+    }
+  ],
   "categories": [
-    { "id": "cat-1", "name": "Clothing", "color": "#8B5CF6" },
-    { "id": "cat-2", "name": "Accessories", "color": "#EC4899" },
-    { "id": "cat-3", "name": "Home & Decor", "color": "#F59E0B" },
-    { "id": "cat-4", "name": "Beauty", "color": "#10B981" },
-    { "id": "cat-5", "name": "Other", "color": "#6B7280" }
+    {
+      "id": "cat-1",
+      "name": "Clothing",
+      "color": "#8B5CF6"
+    },
+    {
+      "id": "cat-2",
+      "name": "Accessories",
+      "color": "#EC4899"
+    },
+    {
+      "id": "cat-3",
+      "name": "Home & Decor",
+      "color": "#F59E0B"
+    },
+    {
+      "id": "cat-4",
+      "name": "Beauty",
+      "color": "#10B981"
+    },
+    {
+      "id": "cat-5",
+      "name": "Other",
+      "color": "#6B7280"
+    }
   ],
   "statuses": [
-    { "id": "st-1", "name": "Available", "color": "#66BB6A" },
-    { "id": "st-2", "name": "Sold", "color": "#CE93D8" },
-    { "id": "st-3", "name": "Archived", "color": "#8B6F8E" },
-    { "id": "st-4", "name": "Unavailable", "color": "#FF4757" }
+    {
+      "id": "st-1",
+      "name": "Available",
+      "color": "#66BB6A"
+    },
+    {
+      "id": "st-2",
+      "name": "Sold",
+      "color": "#CE93D8"
+    },
+    {
+      "id": "st-3",
+      "name": "Archived",
+      "color": "#8B6F8E"
+    },
+    {
+      "id": "st-4",
+      "name": "Unavailable",
+      "color": "#FF4757"
+    }
   ],
   "sales": [],
   "usage": [],
@@ -19,6 +71,7 @@
   "settings": {
     "currency": "$",
     "lowStockThreshold": 5,
-    "outOfStockStatusId": "st-4"
+    "outOfStockStatusId": "st-4",
+    "pinHash": "6c94e35ccc352d4e9ef0b99562cff995a5741ce8de8ad11b568892934daee366"
   }
 }
