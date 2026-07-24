@@ -14,7 +14,8 @@ const GitHubAPI = (() => {
    */
   function apiUrl(path) {
     if (CONFIG.workerUrl) {
-      return `${CONFIG.workerUrl}/contents/${path}`;
+      // Worker already constructs the GitHub API URL with /contents/ internally
+      return `${CONFIG.workerUrl}/${path}`;
     }
     return `${BASE}/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${path}`;
   }
