@@ -641,13 +641,19 @@ const App = (() => {
     const currency = document.getElementById('settings-currency').value || '$';
     const tokenInput = document.getElementById('settings-github-token');
     const rawToken = tokenInput.value.trim();
-    if (rawToken && rawToken.startsWith('ghp_') && rawToken.length > 20) {
+    if (rawToken === '') {
+      localStorage.removeItem('ehsas_github_token');
+      tokenInput.placeholder = 'Paste your GitHub token...';
+      showToast('Token removed.', 'ok');
+    } else if (rawToken.includes('...') && localStorage.getItem('ehsas_github_token')) {
+      // Already saved and masked — skip token update
+    } else if (rawToken.startsWith('ghp_') && rawToken.length >= 36) {
       localStorage.setItem('ehsas_github_token', rawToken);
       tokenInput.value = rawToken.substring(0, 10) + '...';
       tokenInput.placeholder = 'Token saved ✓';
       showToast('Token saved! ✅', 'ok');
-    } else if (rawToken && !rawToken.includes('...')) {
-      showToast('Invalid token. Must start with ghp_', 'err');
+    } else if (!rawToken.includes('...')) {
+      showToast('Invalid token format. Must start with ghp_', 'err');
       return;
     }
     DB.updateSettings({ lowStockThreshold: threshold, currency });
