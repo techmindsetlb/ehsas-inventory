@@ -647,13 +647,13 @@ const App = (() => {
       showToast('Token removed.', 'ok');
     } else if (rawToken.includes('...') && localStorage.getItem('ehsas_github_token')) {
       // Already saved and masked — skip token update
-    } else if (rawToken.startsWith('ghp_') && rawToken.length >= 36) {
+    } else if ((rawToken.startsWith('ghp_') || rawToken.startsWith('github_pat_')) && rawToken.length >= 30) {
       localStorage.setItem('ehsas_github_token', rawToken);
       tokenInput.value = rawToken.substring(0, 10) + '...';
       tokenInput.placeholder = 'Token saved ✓';
       showToast('Token saved! ✅', 'ok');
     } else if (!rawToken.includes('...')) {
-      showToast('Invalid token format. Must start with ghp_', 'err');
+      showToast('Invalid token format. Must start with ghp_ or github_pat_', 'err');
       return;
     }
     DB.updateSettings({ lowStockThreshold: threshold, currency });
