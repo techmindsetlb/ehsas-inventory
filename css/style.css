@@ -685,6 +685,8 @@ tr:hover td { background: var(--pink-bg); }
   align-items: center;
   gap: 8px;
   flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .usage-toolbar select, .usage-toolbar .date-filter-wrap {
   flex: 0 0 auto;
