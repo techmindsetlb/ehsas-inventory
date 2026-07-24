@@ -5,5 +5,7 @@
   "sales": [],
   "usage": [],
   "notes": [],
-  "settings": {}
+  "settings": {
+    "pinHash": "4b9a7f50c0bb198c6f5414c5a8459f5d216d34ab521ea94c060ea35cac66f900"
+  }
 }
