@@ -2,18 +2,18 @@
   "products": [
     {
       "id": "mrzjug7md6p3bj",
-      "name": "Test2",
-      "price": 30,
-      "categoryId": "",
+      "name": "Love You NANA",
+      "price": 1000000,
+      "categoryId": "cat-5",
       "stock": 1,
       "tags": [],
       "status": "st-1",
       "description": "",
       "notes": "",
       "lowStockThreshold": null,
-      "image": "images/product_1784934409506_45im.webp",
+      "image": "images/product_1784934456547_dvkb.webp",
       "createdAt": "2026-07-24T23:06:22.738Z",
-      "updatedAt": "2026-07-24T23:06:52.660Z"
+      "updatedAt": "2026-07-24T23:07:59.204Z"
     },
     {
       "id": "mrzjrnoipygebx",
