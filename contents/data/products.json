@@ -1,21 +1,5 @@
 {
-  "products": [
-    {
-      "id": "mrzisilccjwj8k",
-      "name": "test",
-      "price": 10,
-      "categoryId": "",
-      "stock": 10,
-      "tags": [],
-      "status": "",
-      "description": "",
-      "notes": "",
-      "lowStockThreshold": null,
-      "image": "images/product_1784932608857_7tkk.webp",
-      "createdAt": "2026-07-24T22:36:52.896Z",
-      "updatedAt": "2026-07-24T22:36:52.896Z"
-    }
-  ],
+  "products": [],
   "categories": [],
   "statuses": [],
   "sales": [],
