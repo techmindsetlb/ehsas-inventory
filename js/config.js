@@ -8,7 +8,7 @@ const CONFIG = {
   // === GitHub API Proxy (Cloudflare Worker) ===
   // Set this to your Worker URL after deploying worker.js
   // Leave empty to use direct GitHub API (requires token below)
-  workerUrl: '',  // e.g., 'https://ehsas-proxy.your-name.workers.dev'
+  workerUrl: 'https://ehsas-proxy.techmindset-leb.workers.dev',
 
   // === GitHub Personal Access Token (only if NOT using a Worker) ===
   token: 'YOUR_GITHUB_TOKEN',
