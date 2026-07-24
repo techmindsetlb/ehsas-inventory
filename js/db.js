@@ -36,13 +36,19 @@ const DB = (() => {
         const unavailSt = (data.statuses || []).find(s => s.name === 'Unavailable');
         if (unavailSt) data.settings.outOfStockStatusId = unavailSt.id;
       }
-      // Sync PIN hash from synced data to localStorage
+      // Sync PIN hash both ways: data to localStorage AND localStorage to data
+      const localPinHash = localStorage.getItem(CONFIG.pinHashKey);
       if (data.settings && data.settings.pinHash) {
+        // Remote has a hash -> use it locally (it's the latest synced one)
         localStorage.setItem(CONFIG.pinHashKey, data.settings.pinHash);
+      } else if (localPinHash) {
+        // Local has a hash but data doesn't -> push it to data for syncing
+        if (!data.settings) data.settings = {};
+        data.settings.pinHash = localPinHash;
+        isDirty = true;
       }
       localStorage.setItem(CONFIG.cacheKey, JSON.stringify(data));
       lastSavedData = JSON.stringify(data);
-      isDirty = false;
       return data;
     }
     const cached = localStorage.getItem(CONFIG.cacheKey);
