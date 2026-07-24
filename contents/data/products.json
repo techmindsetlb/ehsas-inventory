@@ -1,5 +1,21 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mrzjprb5h131lv",
+      "name": "Test",
+      "price": 10,
+      "categoryId": "",
+      "stock": 10,
+      "tags": [],
+      "status": "",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": null,
+      "image": "images/product_1784934156730_gxgq.webp",
+      "createdAt": "2026-07-24T23:02:43.842Z",
+      "updatedAt": "2026-07-24T23:02:43.845Z"
+    }
+  ],
   "categories": [],
   "statuses": [],
   "sales": [],
