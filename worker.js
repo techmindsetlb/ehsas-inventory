@@ -19,7 +19,7 @@ const REPO = 'ehsas-inventory';
 const BRANCH = 'master';
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     // Handle CORS preflight
     if (request.method === 'OPTIONS') {
       return new Response(null, {
@@ -34,8 +34,8 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // Read token from Worker secret (set in Cloudflare dashboard)
-    const token = GITHUB_TOKEN;
+    // Read token from Worker secret (set in Cloudflare dashboard via env)
+    const token = env.GITHUB_TOKEN;
     if (!token) {
       return new Response(JSON.stringify({ error: 'GitHub token not configured. Set GITHUB_TOKEN as a Worker secret.' }), {
         status: 500,
