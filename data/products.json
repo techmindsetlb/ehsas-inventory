@@ -67,7 +67,15 @@
   ],
   "sales": [],
   "usage": [],
-  "notes": [],
+  "notes": [
+    {
+      "id": "mrzkct1swjyiv2",
+      "title": "FROM ABBOUSI",
+      "content": "I LOVE YOU MY NANA\nYOU'RE THE SWEETEST\nYOU'RE THE CUTEST\nYOU'RE THE STRONGEST\nYOU'RE THE PRETTIEST\nYOU'RE THE BEST\nYOU'RE THE BEAST IN THE MIDDLE EAST\nGOOD LUCK IN THIS INVENTORY JOURNEY\nI LOVE YOU MY NANA",
+      "createdAt": "2026-07-24T23:20:39.184Z",
+      "updatedAt": "2026-07-24T23:20:39.184Z"
+    }
+  ],
   "settings": {
     "currency": "$",
     "lowStockThreshold": 5,
