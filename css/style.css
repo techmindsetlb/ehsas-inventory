@@ -1361,14 +1361,11 @@ tr:hover td { background: var(--pink-bg); }
 
   .main-board-name { font-size: 15px; }
 
-  .main-content {
-    margin-left: 0 !important;
-    margin-top: 60px !important;
-    padding: 14px !important;
-    padding-bottom: 76px !important;
+  .cards-area {
+    padding: 12px 14px;
+    margin-top: 60px;
+    padding-bottom: 76px;
   }
-
-  .cards-area { padding: 12px 14px; }
   .cards-grid { max-width: 100%; }
 
   .modal { max-width: 100%; margin: 8px; }
