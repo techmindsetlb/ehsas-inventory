@@ -9,7 +9,7 @@ const CONFIG = {
   // Create a classic token with 'repo' scope at:
   // https://github.com/settings/tokens
   // Then paste it below:
-  token: 'YOUR_GITHUB_TOKEN',
+  token: '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',
 
   // === App Settings ===
   appName: 'Ehsas Store',
