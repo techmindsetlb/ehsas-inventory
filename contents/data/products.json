@@ -1,21 +1,5 @@
 {
-  "products": [
-    {
-      "id": "mrzie0s7yi1aec",
-      "name": "Test",
-      "price": 110,
-      "categoryId": "",
-      "stock": 1,
-      "tags": [],
-      "status": "",
-      "description": "",
-      "notes": "",
-      "lowStockThreshold": null,
-      "image": "",
-      "createdAt": "2026-07-24T22:25:36.633Z",
-      "updatedAt": "2026-07-24T22:25:36.636Z"
-    }
-  ],
+  "products": [],
   "categories": [],
   "statuses": [],
   "sales": [],
