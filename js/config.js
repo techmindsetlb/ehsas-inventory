@@ -5,10 +5,12 @@ const CONFIG = {
   branch: 'master',
   dataPath: 'data/products.json',
 
-  // === GitHub Personal Access Token ===
-  // Create a classic token with 'repo' scope at:
-  // https://github.com/settings/tokens
-  // Then paste it below:
+  // === GitHub API Proxy (Cloudflare Worker) ===
+  // Set this to your Worker URL after deploying worker.js
+  // Leave empty to use direct GitHub API (requires token below)
+  workerUrl: '',  // e.g., 'https://ehsas-proxy.your-name.workers.dev'
+
+  // === GitHub Personal Access Token (only if NOT using a Worker) ===
   token: 'YOUR_GITHUB_TOKEN',
 
   // === App Settings ===
