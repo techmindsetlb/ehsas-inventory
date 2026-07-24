@@ -1,5 +1,21 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mrzj7uhsuli3nk",
+      "name": "test",
+      "price": 200,
+      "categoryId": "",
+      "stock": 10,
+      "tags": [],
+      "status": "",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": null,
+      "image": "images/product_1784933324312_jl79.webp",
+      "createdAt": "2026-07-24T22:48:48.160Z",
+      "updatedAt": "2026-07-24T22:48:48.161Z"
+    }
+  ],
   "categories": [],
   "statuses": [],
   "sales": [],
