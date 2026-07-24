@@ -679,15 +679,12 @@ tr:hover td { background: var(--pink-bg); }
   flex-wrap: wrap;
 }
 
-/* Usage page: filters side by side on desktop */
+/* Usage page: filters in a row, wrap naturally */
 .usage-toolbar {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: nowrap;
-}
-.usage-toolbar > * {
-  flex-shrink: 0;
+  flex-wrap: wrap;
 }
 .date-filter-wrap {
   display: flex;
@@ -701,32 +698,6 @@ tr:hover td { background: var(--pink-bg); }
 }
 .date-filter-wrap input {
   max-width: 140px;
-}
-
-@media (max-width: 900px) {
-  .usage-toolbar {
-    flex-wrap: wrap;
-  }
-  .usage-toolbar > * {
-    flex-shrink: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .usage-toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .usage-toolbar > * {
-    width: 100%;
-  }
-  .date-filter-wrap {
-    flex-direction: row;
-  }
-  .date-filter-wrap input {
-    max-width: none;
-    flex: 1;
-  }
 }
 
 .search-wrapper {
