@@ -48,15 +48,16 @@ export default {
 
     const githubUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents${path}`;
 
+    const headers = {
+      'Authorization': `token ${token}`,
+      'Accept': 'application/vnd.github.v3+json',
+      'User-Agent': 'EhsasStore/1.0'
+    };
+
     // For write operations, get the SHA of the current file
     let sha = null;
     if (request.method === 'PUT') {
-      const getRes = await fetch(githubUrl, {
-        headers: {
-          'Authorization': `token ${token}`,
-          'Accept': 'application/vnd.github.v3+json'
-        }
-      });
+      const getRes = await fetch(githubUrl, { headers });
       if (getRes.ok) {
         const body = await getRes.json();
         sha = body.sha;
@@ -75,11 +76,7 @@ export default {
     // Forward to GitHub API
     const githubRes = await fetch(githubUrl, {
       method: request.method,
-      headers: {
-        'Authorization': `token ${token}`,
-        'Accept': 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
+      headers: { ...headers, 'Content-Type': 'application/json' },
       body: body
     });
 
