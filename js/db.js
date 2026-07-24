@@ -36,6 +36,10 @@ const DB = (() => {
         const unavailSt = (data.statuses || []).find(s => s.name === 'Unavailable');
         if (unavailSt) data.settings.outOfStockStatusId = unavailSt.id;
       }
+      // Sync PIN hash from synced data to localStorage
+      if (data.settings && data.settings.pinHash) {
+        localStorage.setItem(CONFIG.pinHashKey, data.settings.pinHash);
+      }
       localStorage.setItem(CONFIG.cacheKey, JSON.stringify(data));
       lastSavedData = JSON.stringify(data);
       isDirty = false;

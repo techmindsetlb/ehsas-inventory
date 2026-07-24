@@ -627,9 +627,13 @@ const App = (() => {
     if (newPin.length < 4) { showToast('PIN must be 4+ characters.', 'err'); return; }
     const success = await Auth.changePin(current, newPin);
     if (success) {
+      // Sync PIN hash to GitHub data so it works on all devices
+      const newHash = await Auth.hashPin(newPin);
+      DB.updateSettings({ pinHash: newHash });
       msgEl.textContent = '✅ PIN changed!'; msgEl.style.color = 'var(--green)'; msgEl.style.display = 'block';
       document.getElementById('settings-current-pin').value = ''; document.getElementById('settings-new-pin').value = ''; document.getElementById('settings-confirm-pin').value = '';
       showToast('PIN changed! ✅', 'ok');
+      autosave();
     } else { msgEl.textContent = '❌ Current PIN is incorrect.'; msgEl.style.color = 'var(--red)'; msgEl.style.display = 'block'; }
   }
 

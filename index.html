@@ -150,7 +150,7 @@
             <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600">&#128176; Orders &amp; Usage</h3>
             <button class="btn btn-pink" onclick="App.showAddUsageModal()">+ Log Activity</button>
           </div>
-          <div class="products-toolbar" style="margin-bottom:12px">
+          <div class="usage-toolbar" style="margin-bottom:12px">
             <select id="usage-filter-product" class="form-s" onchange="App.searchUsage()" style="min-width:150px"><option value="all">All Products</option></select>
             <select id="usage-filter-type" class="form-s" onchange="App.searchUsage()" style="min-width:120px">
               <option value="all">All Types</option>
@@ -159,8 +159,8 @@
               <option value="donated">Donated</option>
               <option value="other">Other</option>
             </select>
-            <div style="display:flex;align-items:center;gap:6px"><label style="font-size:12px;color:var(--plum-muted);white-space:nowrap">From</label><input type="date" id="usage-filter-from" class="form-i" onchange="App.searchUsage()" style="max-width:150px"></div>
-            <div style="display:flex;align-items:center;gap:6px"><label style="font-size:12px;color:var(--plum-muted);white-space:nowrap">To</label><input type="date" id="usage-filter-to" class="form-i" onchange="App.searchUsage()" style="max-width:150px"></div>
+            <div class="date-filter-wrap"><label>From</label><input type="date" id="usage-filter-from" class="form-i" onchange="App.searchUsage()"></div>
+            <div class="date-filter-wrap"><label>To</label><input type="date" id="usage-filter-to" class="form-i" onchange="App.searchUsage()"></div>
           </div>
           <div class="stats-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
             <div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value" id="usage-revenue">$0</div></div>

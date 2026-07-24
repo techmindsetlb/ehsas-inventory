@@ -87,5 +87,5 @@ const Auth = (() => {
     sessionStorage.removeItem(CONFIG.sessionKey);
   }
 
-  return { init, verify, changePin, createSession, checkSession, destroySession };
+  return { init, verify, changePin, createSession, checkSession, destroySession, hashPin };
 })();
