@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ehsas Store — Inventory</title>
+  <meta name="description" content="Inventory management for Ehsas Store">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌻%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <div id="login-screen" class="lock-screen">
+    <div class="lock-container">
+      <div class="lock-emoji">🌻</div>
+      <div class="lock-title">Ehsas Store</div>
+      <div class="lock-sub">Inventory Manager</div>
+      <div class="lock-pin-wrap">
+        <div class="lock-dots" id="lock-dots">
+          <div class="lock-dot" data-idx="0"></div>
+          <div class="lock-dot" data-idx="1"></div>
+          <div class="lock-dot" data-idx="2"></div>
+          <div class="lock-dot" data-idx="3"></div>
+        </div>
+        <div class="lock-error" id="login-error">Invalid PIN. Please try again.</div>
+      </div>
+      <div class="lock-keypad" id="lock-keypad">
+        <button class="lock-key" data-key="1">1</button>
+        <button class="lock-key" data-key="2">2</button>
+        <button class="lock-key" data-key="3">3</button>
+        <button class="lock-key" data-key="4">4</button>
+        <button class="lock-key" data-key="5">5</button>
+        <button class="lock-key" data-key="6">6</button>
+        <button class="lock-key" data-key="7">7</button>
+        <button class="lock-key" data-key="8">8</button>
+        <button class="lock-key" data-key="9">9</button>
+        <button class="lock-key" data-key="clear" style="font-size:14px">&#9003;</button>
+        <button class="lock-key" data-key="0">0</button>
+        <button class="lock-key" data-key="enter" style="font-size:14px;background:rgba(255,107,157,0.2)">&#10003;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app" id="app" style="display:none">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">
+          <span>🌻</span>
+          <div>
+            <div class="sidebar-title-text">Ehsas Store</div>
+            <div class="sidebar-sub">Inventory</div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <button class="sidebar-nav-item active" data-view="dashboard" onclick="App.navigate('dashboard')"><i>&#128202;</i><span>Dashboard</span></button>
+        <button class="sidebar-nav-item" data-view="products" onclick="App.navigate('products')"><i>&#128230;</i><span>Products</span><span class="nav-badge" id="product-count-badge" style="display:none">0</span></button>
+        <button class="sidebar-nav-item" data-view="categories" onclick="App.navigate('categories')"><i>&#127991;</i><span>Categories</span></button>
+        <button class="sidebar-nav-item" data-view="notes" onclick="App.navigate('notes')"><i>&#128221;</i><span>Notes</span></button>
+        <button class="sidebar-nav-item" data-view="usage" onclick="App.navigate('usage')"><i>&#128176;</i><span>Orders &amp; Usage</span></button>
+        <button class="sidebar-nav-item" data-view="settings" onclick="App.navigate('settings')"><i>&#9881;</i><span>Settings</span></button>
+      </div>
+      <div class="sidebar-boards">
+        <div style="flex:1"></div>
+        <button class="add-board-btn" onclick="App.logout()"><i>&#128274;</i><span>Sign Out</span></button>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="App.closeSidebar()"></div>
+
+    <div class="main" id="main">
+      <div class="main-header" id="main-header">
+        <div class="main-header-left">
+          <button class="hamburger" onclick="App.toggleSidebar()" aria-label="Toggle menu">&#9776;</button>
+          <div class="main-board-icon" id="header-icon">&#128202;</div>
+          <div><div class="main-board-name" id="header-title">Dashboard</div></div>
+        </div>
+        <div class="main-header-actions">
+          <div class="unsaved-indicator" id="unsaved-indicator"><span class="unsaved-dot"></span>Unsaved</div>
+          <button class="btn btn-sm btn-ghost" onclick="App.saveNow()" id="save-btn" style="display:none">&#128190; Save</button>
+        </div>
+      </div>
+
+      <div class="cards-area" id="main-content">
+
+        <div class="loading-screen" id="loading-screen" style="display:none"><div class="spinner"></div></div>
+
+        <!-- DASHBOARD -->
+        <div class="view" id="view-dashboard" style="display:none">
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-label">Total Products</div><div class="stat-value" id="stat-products">0</div><div class="stat-sub">in inventory</div></div>
+            <div class="stat-card"><div class="stat-label">Total Items</div><div class="stat-value" id="stat-items">0</div><div class="stat-sub">stock count</div></div>
+            <div class="stat-card"><div class="stat-label">Revenue</div><div class="stat-value" id="stat-revenue">$0</div><div class="stat-sub">total sales</div></div>
+            <div class="stat-card"><div class="stat-label">Low Stock</div><div class="stat-value" id="stat-lowstock">0</div><div class="stat-sub">items need restock</div></div>
+            <div class="stat-card"><div class="stat-label">Out of Stock</div><div class="stat-value" id="stat-outofstock">0</div><div class="stat-sub">unavailable items</div></div>
+            <div class="stat-card"><div class="stat-label">Notes</div><div class="stat-value" id="stat-notes">0</div><div class="stat-sub">saved notes</div></div>
+            <div class="stat-card"><div class="stat-label">Activities</div><div class="stat-value" id="stat-usage">0</div><div class="stat-sub">orders &amp; usage</div></div>
+          </div>
+          <div class="dashboard-grid">
+            <div class="card"><div class="card-header"><h3>Recent Products</h3><button class="btn btn-sm btn-ghost" onclick="App.navigate('products')">View All &rarr;</button></div><div id="recent-products"></div></div>
+            <div class="card"><div class="card-header"><h3>Low Stock Alerts</h3></div><div id="low-stock-list"></div></div>
+            <div class="card"><div class="card-header"><h3>Out of Stock</h3></div><div id="outofstock-list"></div></div>
+          </div>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="view" id="view-products" style="display:none">
+          <div class="products-header">
+            <div class="products-toolbar">
+              <div class="search-wrapper"><span class="search-icon">&#128269;</span><input type="text" id="product-search" class="form-i" placeholder="Search products..." oninput="App.searchProducts()"></div>
+              <select id="category-filter" class="form-s" onchange="App.searchProducts()" style="width:auto;min-width:130px;"><option value="all">All Categories</option></select>
+              <select id="status-filter" class="form-s" onchange="App.searchProducts()" style="width:auto;min-width:115px;"><option value="all">All Status</option></select>
+            </div>
+            <button class="btn btn-pink" onclick="App.showAddProductModal()">+ Add Product</button>
+          </div>
+          <div class="table-container" id="products-table-container">
+            <table><thead><tr><th>Product</th><th>Price</th><th>Stock</th><th>Status</th><th>Added</th><th style="width:80px">Actions</th></tr></thead><tbody id="products-tbody"></tbody></table>
+          </div>
+          <div id="products-empty" class="empty-state" style="display:none;"><div class="empty-state-icon">&#128230;</div><div class="empty-state-text">No products yet</div><div class="empty-state-sub">Add your first product to get started.</div><button class="btn btn-pink" style="margin-top:16px" onclick="App.showAddProductModal()">+ Add Product</button></div>
+        </div>
+
+        <!-- CATEGORIES + STATUSES -->
+        <div class="view" id="view-categories" style="display:none">
+          <div class="card" style="margin-bottom:16px">
+            <div class="card-header"><h3>Categories</h3><button class="btn btn-pink btn-sm" onclick="App.showAddCategoryModal()">+ Add Category</button></div>
+            <div id="categories-list"></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Product Statuses</h3><button class="btn btn-pink btn-sm" onclick="App.showAddStatusModal()">+ Add Status</button></div>
+            <p style="font-size:12px;color:var(--plum-muted);margin-bottom:12px">Create custom statuses like "On Hold", "On Sale", "Coming Soon", etc.</p>
+            <div id="statuses-list"></div>
+          </div>
+        </div>
+
+        <!-- NOTES -->
+        <div class="view" id="view-notes" style="display:none">
+          <div class="products-header">
+            <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600">&#128221; Notes</h3>
+            <button class="btn btn-pink" onclick="App.showAddNoteModal()">+ Add Note</button>
+          </div>
+          <div id="notes-list"></div>
+        </div>
+
+        <!-- USAGE (Orders + Usage) -->
+        <div class="view" id="view-usage" style="display:none">
+          <div class="products-header">
+            <h3 style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600">&#128176; Orders &amp; Usage</h3>
+            <button class="btn btn-pink" onclick="App.showAddUsageModal()">+ Log Activity</button>
+          </div>
+          <div class="products-toolbar" style="margin-bottom:12px">
+            <select id="usage-filter-product" class="form-s" onchange="App.searchUsage()" style="min-width:150px"><option value="all">All Products</option></select>
+            <select id="usage-filter-type" class="form-s" onchange="App.searchUsage()" style="min-width:120px">
+              <option value="all">All Types</option>
+              <option value="sold">Sold</option>
+              <option value="used">Used</option>
+              <option value="donated">Donated</option>
+              <option value="other">Other</option>
+            </select>
+            <div style="display:flex;align-items:center;gap:6px"><label style="font-size:12px;color:var(--plum-muted);white-space:nowrap">From</label><input type="date" id="usage-filter-from" class="form-i" onchange="App.searchUsage()" style="max-width:150px"></div>
+            <div style="display:flex;align-items:center;gap:6px"><label style="font-size:12px;color:var(--plum-muted);white-space:nowrap">To</label><input type="date" id="usage-filter-to" class="form-i" onchange="App.searchUsage()" style="max-width:150px"></div>
+          </div>
+          <div class="stats-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+            <div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value" id="usage-revenue">$0</div></div>
+            <div class="stat-card"><div class="stat-label">Total Orders</div><div class="stat-value" id="usage-sold">0</div></div>
+            <div class="stat-card"><div class="stat-label">Items Used</div><div class="stat-value" id="usage-used">0</div></div>
+          </div>
+          <div class="card" style="margin-top:14px"><div id="usage-list"></div></div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="view" id="view-settings" style="display:none">
+          <div class="card settings-section">
+            <h3>Security</h3>
+            <div class="form-row" style="align-items:end">
+              <div class="form-g"><label class="form-l">Current PIN</label><input type="password" id="settings-current-pin" class="form-i" placeholder="Current PIN" maxlength="10"></div>
+              <div class="form-g"><label class="form-l">New PIN</label><input type="password" id="settings-new-pin" class="form-i" placeholder="New PIN" maxlength="10"></div>
+              <div class="form-g"><label class="form-l">Confirm PIN</label><input type="password" id="settings-confirm-pin" class="form-i" placeholder="Confirm PIN" maxlength="10"></div>
+              <button class="btn btn-pink" onclick="App.changePin()">Change PIN</button>
+            </div>
+            <p id="pin-change-msg" style="font-size:12px;margin-top:12px;display:none;"></p>
+          </div>
+          <div class="card settings-section">
+            <h3>Preferences</h3>
+            <div class="form-row">
+              <div class="form-g"><label class="form-l">Low Stock Threshold</label><input type="number" id="settings-threshold" class="form-i" min="1" max="100" value="5"></div>
+              <div class="form-g"><label class="form-l">Currency Symbol</label><input type="text" id="settings-currency" class="form-i" maxlength="5" value="$" style="width:80px"></div>
+            </div>
+            <button class="btn btn-ghost" onclick="App.saveSettings()" style="margin-top:14px">Save Settings</button>
+          </div>
+          <div class="card settings-section">
+            <h3>Export Data</h3>
+            <p style="font-size:13px;color:var(--plum-muted);margin-bottom:14px">Download inventory as CSV.</p>
+            <button class="btn btn-ghost" onclick="App.exportCSV()">Export CSV</button>
+          </div>
+          <div class="card settings-section">
+            <h3>GitHub Sync</h3>
+            <p style="font-size:13px;color:var(--plum-muted);margin-bottom:14px">Data stored in <code>data/products.json</code> + <code>images/</code>.</p>
+            <button class="btn btn-ghost" onclick="App.saveNow()">Sync Now</button>
+            <span id="last-sync-time" style="font-size:12px;color:var(--plum-muted);margin-left:14px"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal">
+      <div class="modal-h"><div class="modal-h-title" id="product-modal-title">Add Product</div><button class="modal-close" onclick="App.closeModal('product-modal')">&#10005;</button></div>
+      <div class="modal-b">
+        <input type="hidden" id="product-id">
+        <div class="form-row">
+          <div class="form-g"><label class="form-l">Product Name *</label><input type="text" id="product-name" class="form-i" placeholder="e.g., Silk Dress"></div>
+          <div class="form-g"><label class="form-l">Price *</label><input type="number" id="product-price" class="form-i" placeholder="29.99" step="0.01" min="0"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-g"><label class="form-l">Category</label><select id="product-category" class="form-s"></select></div>
+          <div class="form-g"><label class="form-l">Stock Qty</label><input type="number" id="product-stock" class="form-i" placeholder="10" min="0" value="1"></div>
+        </div>
+        <div class="form-g"><label class="form-l">Low Stock Alert At <span style="font-weight:400;color:var(--plum-muted)">(optional — per product)</span></label><input type="number" id="product-lowstock-threshold" class="form-i" placeholder="e.g., 10 (default: 5)" min="1" value=""></div>
+        <div class="form-g">
+          <label class="form-l">Product Image</label>
+          <div class="image-upload-zone" id="image-upload-zone">
+            <span class="upload-icon">&#128247;</span>Click or drag image<br>(JPG, PNG &rarr; WebP)
+            <input type="file" id="product-image-input" accept="image/*" onchange="App.handleImageUpload(event)">
+          </div>
+          <div class="image-preview" id="image-preview"><img id="image-preview-img" alt="Preview"><button class="image-preview-remove" onclick="App.removeImage()">&#10005;</button></div>
+        </div>
+        <div class="form-g"><label class="form-l">Tags</label><input type="text" id="product-tags" class="form-i" placeholder="summer, new, trending"></div>
+        <div class="form-g">
+          <label class="form-l">Status</label>
+          <select id="product-status" class="form-s"></select>
+        </div>
+        <div class="form-g"><label class="form-l">Description</label><textarea id="product-description" class="form-t" placeholder="Product description..." rows="3"></textarea></div>
+        <div class="form-g"><label class="form-l">Notes</label><textarea id="product-notes-text" class="form-t" placeholder="Internal notes..." rows="2"></textarea></div>
+      </div>
+      <div class="modal-f">
+        <button class="btn btn-ghost" onclick="App.closeModal('product-modal')">Cancel</button>
+        <button class="btn btn-pink" id="product-save-btn" onclick="App.saveProduct()">Add Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY MODAL -->
+  <div class="modal-overlay" id="category-modal">
+    <div class="modal" style="max-width:380px">
+      <div class="modal-h"><div class="modal-h-title">Add Category</div><button class="modal-close" onclick="App.closeModal('category-modal')">&#10005;</button></div>
+      <div class="modal-b">
+        <div class="form-g"><label class="form-l">Category Name *</label><input type="text" id="category-name" class="form-i" placeholder="e.g., Jewelry"></div>
+        <div class="form-g"><label class="form-l">Color</label><input type="color" id="category-color" value="#FF6B9D" style="width:60px;height:40px;padding:2px;border:2px solid rgba(45,27,46,0.08);border-radius:var(--radius-sm);cursor:pointer"></div>
+      </div>
+      <div class="modal-f"><button class="btn btn-ghost" onclick="App.closeModal('category-modal')">Cancel</button><button class="btn btn-pink" onclick="App.saveCategory()">Add Category</button></div>
+    </div>
+  </div>
+
+  <!-- STATUS MODAL -->
+  <div class="modal-overlay" id="status-modal">
+    <div class="modal" style="max-width:380px">
+      <div class="modal-h"><div class="modal-h-title">Add Status</div><button class="modal-close" onclick="App.closeModal('status-modal')">&#10005;</button></div>
+      <div class="modal-b">
+        <div class="form-g"><label class="form-l">Status Name *</label><input type="text" id="status-name" class="form-i" placeholder="e.g., On Hold"></div>
+        <div class="form-g"><label class="form-l">Color</label><input type="color" id="status-color" value="#FF6B9D" style="width:60px;height:40px;padding:2px;border:2px solid rgba(45,27,46,0.08);border-radius:var(--radius-sm);cursor:pointer"></div>
+      </div>
+      <div class="modal-f"><button class="btn btn-ghost" onclick="App.closeModal('status-modal')">Cancel</button><button class="btn btn-pink" onclick="App.saveStatus()">Add Status</button></div>
+    </div>
+  </div>
+
+  <!-- NOTE MODAL -->
+  <div class="modal-overlay" id="note-modal">
+    <div class="modal" style="max-width:500px">
+      <div class="modal-h"><div class="modal-h-title" id="note-modal-title">Add Note</div><button class="modal-close" onclick="App.closeModal('note-modal')">&#10005;</button></div>
+      <div class="modal-b">
+        <input type="hidden" id="note-id">
+        <div class="form-g"><label class="form-l">Title *</label><input type="text" id="note-title" class="form-i" placeholder="Note title"></div>
+        <div class="form-g"><label class="form-l">Content</label><textarea id="note-content" class="form-t" placeholder="Write your note here..." rows="8" style="min-height:150px"></textarea></div>
+      </div>
+      <div class="modal-f"><button class="btn btn-ghost" onclick="App.closeModal('note-modal')">Cancel</button><button class="btn btn-pink" id="note-save-btn" onclick="App.saveNote()">Save Note</button></div>
+    </div>
+  </div>
+
+  <!-- USAGE MODAL (Orders + Usage) -->
+  <div class="modal-overlay" id="usage-modal">
+    <div class="modal" style="max-width:480px">
+      <div class="modal-h"><div class="modal-h-title">Log Activity</div><button class="modal-close" onclick="App.closeModal('usage-modal')">&#10005;</button></div>
+      <div class="modal-b">
+        <div class="form-g">
+          <label class="form-l">Product *</label>
+          <select id="usage-product" class="form-s"></select>
+        </div>
+        <div class="form-row">
+          <div class="form-g">
+            <label class="form-l">Type</label>
+            <select id="usage-type" class="form-s" onchange="App.toggleUsageRevenue()">
+              <option value="sold">Sold (Order)</option>
+              <option value="used">Used</option>
+              <option value="donated">Donated</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-g"><label class="form-l">Quantity *</label><input type="number" id="usage-quantity" class="form-i" value="1" min="1"></div>
+        </div>
+        <div class="form-g" id="usage-revenue-group">
+          <label class="form-l">Revenue *</label>
+          <input type="number" id="usage-revenue" class="form-i" placeholder="29.99" step="0.01" min="0">
+        </div>
+        <div class="form-g">
+          <label class="form-l">Reason / Notes</label>
+          <textarea id="usage-reason" class="form-t" placeholder="Why was it used/sold? (e.g., Customer order, personal use, gift...)" rows="3"></textarea>
+        </div>
+        <div class="form-g"><label class="form-l">Date</label><input type="date" id="usage-date" class="form-i"></div>
+      </div>
+      <div class="modal-f"><button class="btn btn-ghost" onclick="App.closeModal('usage-modal')">Cancel</button><button class="btn btn-pink" onclick="App.saveUsage()">Log Activity</button></div>
+    </div>
+  </div>
+
+  <div class="toast-c" id="toast-c"></div>
+
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <button class="mobile-nav-item active" data-view="dashboard" onclick="App.navigate('dashboard')"><span class="mobile-nav-icon">&#128202;</span>Home</button>
+      <button class="mobile-nav-item" data-view="products" onclick="App.navigate('products')"><span class="mobile-nav-icon">&#128230;</span>Products</button>
+      <button class="mobile-nav-item" data-view="notes" onclick="App.navigate('notes')"><span class="mobile-nav-icon">&#128221;</span>Notes</button>
+      <button class="mobile-nav-item" data-view="usage" onclick="App.navigate('usage')"><span class="mobile-nav-icon">&#128176;</span>Orders</button>
+      <button class="mobile-nav-item" data-view="settings" onclick="App.navigate('settings')"><span class="mobile-nav-icon">&#9881;</span>Settings</button>
+    </div>
+  </nav>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
