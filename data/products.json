@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "ms05tkg9sq6tjy",
+      "name": "vanilla",
+      "price": 50,
+      "categoryId": "",
+      "stock": 10,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": null,
+      "image": "",
+      "createdAt": "2026-07-25T09:21:33.129Z",
+      "updatedAt": "2026-07-25T09:21:33.129Z"
+    },
+    {
       "id": "mrzjug7md6p3bj",
       "name": "Love You NANA",
       "price": 1000000,
