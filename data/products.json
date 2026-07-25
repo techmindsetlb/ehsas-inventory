@@ -1,21 +1,5 @@
 {
-  "products": [
-    {
-      "id": "mrzjug7md6p3bj",
-      "name": "Love You NANA",
-      "price": 50,
-      "categoryId": "cat-5",
-      "stock": 4,
-      "tags": [],
-      "status": "st-1",
-      "description": "",
-      "notes": "",
-      "lowStockThreshold": null,
-      "image": "images/product_1784972248466_jc1z.webp",
-      "createdAt": "2026-07-24T23:06:22.738Z",
-      "updatedAt": "2026-07-25T09:40:05.162Z"
-    }
-  ],
+  "products": [],
   "categories": [
     {
       "id": "cat-1",
@@ -65,28 +49,8 @@
       "color": "#FF4757"
     }
   ],
-  "sales": [
-    {
-      "id": "ms06hei2v1hrlg",
-      "productId": "mrzjug7md6p3bj",
-      "quantity": 1,
-      "revenue": 50,
-      "date": "2026-07-25",
-      "notes": ""
-    }
-  ],
-  "usage": [
-    {
-      "id": "ms06hei2dpp4cy",
-      "productId": "mrzjug7md6p3bj",
-      "type": "sold",
-      "quantity": 1,
-      "revenue": 50,
-      "reason": "",
-      "date": "2026-07-25",
-      "notes": ""
-    }
-  ],
+  "sales": [],
+  "usage": [],
   "notes": [
     {
       "id": "mrzkct1swjyiv2",
