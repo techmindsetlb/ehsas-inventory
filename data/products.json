@@ -3,17 +3,17 @@
     {
       "id": "mrzjug7md6p3bj",
       "name": "Love You NANA",
-      "price": 1000000,
+      "price": 50,
       "categoryId": "cat-5",
-      "stock": 1,
+      "stock": 5,
       "tags": [],
       "status": "st-1",
       "description": "",
       "notes": "",
       "lowStockThreshold": null,
-      "image": "images/product_1784934456547_dvkb.webp",
+      "image": "images/product_1784972248466_jc1z.webp",
       "createdAt": "2026-07-24T23:06:22.738Z",
-      "updatedAt": "2026-07-24T23:07:59.204Z"
+      "updatedAt": "2026-07-25T09:38:14.230Z"
     }
   ],
   "categories": [
