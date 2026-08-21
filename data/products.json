@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mt38i5wmijca4o",
+      "name": "musk",
+      "price": 49.95,
+      "categoryId": "cat-4",
+      "stock": 4,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 5,
+      "image": "images/product_1787333949361_2uo5.webp",
+      "createdAt": "2026-08-21T17:39:40.774Z",
+      "updatedAt": "2026-08-21T17:39:40.774Z"
+    },
+    {
       "id": "mt38grnkg1o6uv",
       "name": "orchid",
       "price": 49.95,
