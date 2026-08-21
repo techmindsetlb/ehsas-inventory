@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mt38og3hcjer94",
+      "name": "lavender",
+      "price": 49.95,
+      "categoryId": "cat-4",
+      "stock": 1,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 5,
+      "image": "images/product_1787334264732_yza5.webp",
+      "createdAt": "2026-08-21T17:44:33.917Z",
+      "updatedAt": "2026-08-21T17:44:33.917Z"
+    },
+    {
       "id": "mt38myr1d6f8bs",
       "name": "chamomile",
       "price": 45.95,
