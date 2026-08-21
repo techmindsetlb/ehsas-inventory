@@ -108,21 +108,6 @@
   ],
   "categories": [
     {
-      "id": "cat-1",
-      "name": "Clothing",
-      "color": "#8B5CF6"
-    },
-    {
-      "id": "cat-2",
-      "name": "Accessories",
-      "color": "#EC4899"
-    },
-    {
-      "id": "cat-3",
-      "name": "Home & Decor",
-      "color": "#F59E0B"
-    },
-    {
       "id": "cat-4",
       "name": "Beauty",
       "color": "#10B981"
