@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mt38myr1d6f8bs",
+      "name": "chamomile",
+      "price": 45.95,
+      "categoryId": "cat-4",
+      "stock": 1,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 5,
+      "image": "images/product_1787334172304_vqr5.webp",
+      "createdAt": "2026-08-21T17:43:24.781Z",
+      "updatedAt": "2026-08-21T17:43:24.781Z"
+    },
+    {
       "id": "mt38l9wk9suix3",
       "name": "amber",
       "price": 49.95,
