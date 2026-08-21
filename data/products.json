@@ -1,5 +1,21 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mt38fevn6g5kg3",
+      "name": "vanilla",
+      "price": 49.95,
+      "categoryId": "cat-4",
+      "stock": 1,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 5,
+      "image": "images/product_1787333779262_cgy9.webp",
+      "createdAt": "2026-08-21T17:37:32.435Z",
+      "updatedAt": "2026-08-21T17:37:32.435Z"
+    }
+  ],
   "categories": [
     {
       "id": "cat-1",
