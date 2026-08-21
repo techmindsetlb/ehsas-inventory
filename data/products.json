@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mt38l9wk9suix3",
+      "name": "amber",
+      "price": 49.95,
+      "categoryId": "cat-4",
+      "stock": 4,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 5,
+      "image": "images/product_1787334078515_9ohq.webp",
+      "createdAt": "2026-08-21T17:42:05.924Z",
+      "updatedAt": "2026-08-21T17:42:05.924Z"
+    },
+    {
       "id": "mt38js38gqgmji",
       "name": "oud divine",
       "price": 49.95,
