@@ -19,7 +19,7 @@
       "id": "mt38grnkg1o6uv",
       "name": "orchid",
       "price": 49.95,
-      "categoryId": "",
+      "categoryId": "cat-4",
       "stock": 9,
       "tags": [],
       "status": "st-1",
@@ -28,7 +28,7 @@
       "lowStockThreshold": 5,
       "image": "images/product_1787333910837_4f3g.webp",
       "createdAt": "2026-08-21T17:38:35.648Z",
-      "updatedAt": "2026-08-21T17:38:35.648Z"
+      "updatedAt": "2026-08-21T17:39:53.711Z"
     },
     {
       "id": "mt38fevn6g5kg3",
