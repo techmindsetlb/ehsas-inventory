@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mt39xfpelhpmkw",
+      "name": "Paper Bags",
+      "price": 0,
+      "categoryId": "mt39rhye9kbfxq",
+      "stock": 0,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 15,
+      "image": "images/product_1787336369128_rrpu.webp",
+      "createdAt": "2026-08-21T18:19:32.930Z",
+      "updatedAt": "2026-08-21T18:19:32.930Z"
+    },
+    {
       "id": "mt39ub7padl37j",
       "name": "boxes package",
       "price": 0,
