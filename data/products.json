@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mt39ub7padl37j",
+      "name": "boxes package",
+      "price": 0,
+      "categoryId": "mt39rhye9kbfxq",
+      "stock": 78,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 15,
+      "image": "images/product_1787336216184_qnnb.webp",
+      "createdAt": "2026-08-21T18:17:07.141Z",
+      "updatedAt": "2026-08-21T18:17:07.141Z"
+    },
+    {
       "id": "mt38og3hcjer94",
       "name": "lavender",
       "price": 49.95,
