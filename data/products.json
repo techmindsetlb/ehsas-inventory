@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "mt38js38gqgmji",
+      "name": "oud divine",
+      "price": 49.95,
+      "categoryId": "cat-4",
+      "stock": 11,
+      "tags": [],
+      "status": "st-1",
+      "description": "",
+      "notes": "",
+      "lowStockThreshold": 5,
+      "image": "images/product_1787334025438_o9a6.webp",
+      "createdAt": "2026-08-21T17:40:56.180Z",
+      "updatedAt": "2026-08-21T17:40:56.180Z"
+    },
+    {
       "id": "mt38i5wmijca4o",
       "name": "musk",
       "price": 49.95,
